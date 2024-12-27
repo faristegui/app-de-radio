@@ -1,45 +1,65 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <title>Radio</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <meta name="color-scheme" content="light">
-      <style type="text/css">
-        body
-        {
-          background-color: #000000;
-          font-family: Arial;
-        }
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radios</title>
+  <link href="https://cdn.jsdelivr.net/npm/plyr@3.7.6/dist/plyr.css" rel="stylesheet">
+  <style>
+    html {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: #000;
+        text-align: center;
+    }
 
-        .reproductor
-        {
-          padding: 15px;
-          background-color: #FFF;
-          margin: 10px;
-          -webkit-border-radius: 10px;
-          -moz-border-radius: 10px;
-          border-radius: 10px;
-        }
-      </style>
-    </head>
+    .reproductor
+    {
+        padding: 20px;
+        border-radius: 15px;
+        background-color: #fff;
+        margin-bottom: 15px;
+    }
+    .titulo
+    {
+        font-size: 25px;
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+    <img src="https://i.pinimg.com/originals/aa/46/45/aa464516c0a51d92a3830a19333d6f13.gif" style="width: 100%;">
+    <div class="reproductor">
+        <span class="titulo">Absolute Classic Rock</span>
+        <hr>
+        <audio id="audio" controls>
+            <source src="https://edge-bauerall-01-gos2.sharp-stream.com/absoluteclassicrock.aac" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
 
-    <body style="text-align: center;">
+    <div class="reproductor">
+        <span class="titulo">La 100</span>
+        <hr>
+        <audio id="audio2" controls>
+            <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/FM999_56.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
 
+    <div class="reproductor">
+        <span class="titulo">FM Blue</span>
+        <hr>
+        <audio id="audio3" controls>
+            <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/BLUE_FM_100_7AAC.aac?time=1711321471958" type="audio/aac">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
 
-      <div class="reproductor">
-        <h3>Absolute Classic Rock</h3>
-        <iframe name="contenedorPlayer" class="cuadroBordeado" allow="autoplay" width="100%" height="78px" marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no  src="https://cp.usastreams.com/pr2g/APPlayerRadioHTML5.aspx?stream=https://edge-bauerall-01-gos2.sharp-stream.com/absoluteclassicrock.aac&fondo=05&formato=aacp&color=14&titulo=2&autoStart=0&vol=10&tipo=14&nombre=Radio+FM+TOP40&imagen=https://cp.usastreams.com/playerHTML5/img/cover.png"></iframe>
-      </div>
-
-      <div class="reproductor">
-        <h3>La 100</h3>
-        <iframe name="contenedorPlayer" class="cuadroBordeado" allow="autoplay" width="100%" height="78px" marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no  src="https://cp.usastreams.com/pr2g/APPlayerRadioHTML5.aspx?stream=https://playerservices.streamtheworld.com/api/livestream-redirect/FM999_56.mp3&fondo=05&formato=mp3&color=14&titulo=2&autoStart=0&vol=10&tipo=14&nombre=Radio+FM+TOP40&imagen=https://cp.usastreams.com/playerHTML5/img/cover.png"></iframe>
-      </div>
-
-      <div class="reproductor">
-        <h3>FM Blue</h3>
-        <iframe name="contenedorPlayer" class="cuadroBordeado" allow="autoplay" width="100%" height="78px" marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no  src="https://cp.usastreams.com/pr2g/APPlayerRadioHTML5.aspx?stream=https://playerservices.streamtheworld.com/api/livestream-redirect/BLUE_FM_100_7AAC.aac?time=1711321471958&fondo=05&formato=mp3&color=14&titulo=2&autoStart=0&vol=10&tipo=14&nombre=Radio+FM+TOP40&imagen=https://cp.usastreams.com/playerHTML5/img/cover.png"></iframe>
-      </div>
-
-    </body>
-  </html>
+    <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.6/dist/plyr.js"></script>
+    <script>
+        const player = new Plyr('#audio');
+        const player2 = new Plyr('#audio2');
+        const player3 = new Plyr('#audio3');
+    </script>
+</body>
+</html>
