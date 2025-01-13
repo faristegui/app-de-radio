@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Radios</title>
+  
+  <!-- Vincula el archivo de manifiesto -->
+  <link rel="manifest" href="/manifest.json">
+  
   <link href="https://cdn.jsdelivr.net/npm/plyr@3.7.6/dist/plyr.css" rel="stylesheet">
   <style>
     html {
@@ -12,22 +16,32 @@
         text-align: center;
     }
 
-    .reproductor
-    {
+    .reproductor {
         padding: 20px;
         border-radius: 15px;
         background-color: #fff;
         margin-bottom: 15px;
     }
-    .titulo
-    {
+    .titulo {
         font-size: 25px;
         font-weight: bold;
     }
   </style>
+
+  <!-- Script para registrar el Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('Service Worker registrado con éxito:', reg))
+          .catch(err => console.log('Error al registrar el Service Worker:', err));
+      });
+    }
+  </script>
 </head>
 <body>
     <img src="https://i.pinimg.com/originals/aa/46/45/aa464516c0a51d92a3830a19333d6f13.gif" style="width: 100%;">
+    
     <div class="reproductor">
         <span class="titulo">Absolute Classic Rock</span>
         <hr>
