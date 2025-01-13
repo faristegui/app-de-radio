@@ -5,8 +5,6 @@ self.addEventListener('install', (event) => {
       return cache.addAll([
         '/',
         '/index.html',
-        '/css/styles.css',
-        '/js/app.js',
         'https://cdn.jsdelivr.net/npm/plyr@3.7.6/dist/plyr.css',
         'https://cdn.jsdelivr.net/npm/plyr@3.7.6/dist/plyr.js',
         'icon.png'
