@@ -69,11 +69,21 @@
         </audio>
     </div>
 
+    <div class="reproductor">
+        <span class="titulo">Rock FM</span>
+        <hr>
+        <audio id="audio4" controls>
+            <source src="https://rockfm-cope-rrcast.flumotion.com/cope/rockfm-low.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.6/dist/plyr.js"></script>
     <script>
         const player = new Plyr('#audio');
         const player2 = new Plyr('#audio2');
         const player3 = new Plyr('#audio3');
+        const player4 = new Plyr('#audio4');
     </script>
 </body>
 </html>
