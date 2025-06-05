@@ -1,109 +1,138 @@
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Radios Online</title>
-
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-    }
-  </script>
-
   <style>
-    body {
-      font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+    input[type="radio"] {
+      display: none;
     }
-    audio {
-      width: 100%;
-      outline: none;
-      border-radius: 0.375rem;
-      background-color: #111827;
-      box-shadow: 0 0 8px rgba(255 255 255 / 0.1);
-      height: 2.5rem;
+    input[type="radio"]:checked + label {
+      border-color: #8b5cf6;
+      box-shadow: 0 0 10px #8b5cf6;
+      background-color: #3b0764;
     }
-    /* Para que el main no quede tapado por header/footer */
-    main {
-      padding-top: 4.5rem;
-      padding-bottom: 4.5rem;
+    label {
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      border-radius: 1rem;
     }
   </style>
 </head>
-<body class="dark bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+<body class="bg-gray-900 min-h-screen flex flex-col">
 
-  <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 bg-gray-800 bg-opacity-90 backdrop-blur-sm shadow-md z-30 flex items-center gap-3 px-4 h-16">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-2v13" />
-      <circle cx="6" cy="18" r="3" />
-    </svg>
-    <h1 class="text-xl font-semibold select-none">Radios Online</h1>
-  </header>
+  <main class="flex-grow max-w-4xl mx-auto p-6 pb-28 space-y-6">
+    <div class="flex items-center justify-center space-x-3 mb-6">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-2v13" />
+        <circle cx="6" cy="18" r="3" stroke-linecap="round" stroke-linejoin="round" />
+        <circle cx="18" cy="16" r="3" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <h1 class="text-white text-2xl font-extrabold tracking-tight">Elige tu Radio</h1>
+    </div>
 
-  <!-- Main content -->
-  <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full mx-auto px-4">
-    <article class="relative rounded-xl shadow-lg overflow-hidden group cursor-pointer">
-      <img
-        src="https://images.unsplash.com/photo-1511376777868-611b54f68947?auto=format&fit=crop&w=600&q=80"
-        alt="Absolute Classic Rock"
-        class="absolute inset-0 w-full h-full object-cover brightness-50 transition-transform duration-300 group-hover:scale-110"
-      />
-      <div class="relative p-4 flex flex-col justify-end h-40">
-        <h2 class="text-xl font-semibold mb-2 drop-shadow-lg">Absolute Classic Rock</h2>
-        <audio controls>
-          <source src="https://edge-bauerall-01-gos2.sharp-stream.com/absoluteclassicrock.aac" type="audio/mp3" />
-          Tu navegador no soporta el elemento de audio.
-        </audio>
-      </div>
-    </article>
+    <form id="radioForm" class="space-y-5">
 
-    <article class="relative rounded-xl shadow-lg overflow-hidden group cursor-pointer">
-      <img
-        src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80"
-        alt="La 100"
-        class="absolute inset-0 w-full h-full object-cover brightness-50 transition-transform duration-300 group-hover:scale-110"
-      />
-      <div class="relative p-4 flex flex-col justify-end h-40">
-        <h2 class="text-xl font-semibold mb-2 drop-shadow-lg">La 100</h2>
-        <audio controls>
-          <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/FM999_56.mp3" type="audio/mp3" />
-          Tu navegador no soporta el elemento de audio.
-        </audio>
-      </div>
-    </article>
+      <!-- 1 -->
+      <input type="radio" id="radio1" name="radioStream" value="https://edge-bauerall-01-gos2.sharp-stream.com/absoluteclassicrock.aac" data-name="Absolute Classic Rock" />
+      <label for="radio1" class="flex items-center bg-gray-800 p-4 hover:bg-gray-700 transition">
+        <img src="https://cdn-profiles.tunein.com/s49815/images/logog.png?t=698" alt="Absolute Classic Rock" class="w-20 h-20 rounded-lg object-cover mr-5" />
+        <div class="text-white flex flex-col">
+          <h2 class="text-xl font-semibold tracking-wide">Absolute Classic Rock</h2>
+          <p class="text-gray-300 text-sm max-w-md">Rock clásico en su máxima expresión</p>
+        </div>
+      </label>
 
-    <article class="relative rounded-xl shadow-lg overflow-hidden group cursor-pointer">
-      <img
-        src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=600&q=80"
-        alt="FM Blue"
-        class="absolute inset-0 w-full h-full object-cover brightness-50 transition-transform duration-300 group-hover:scale-110"
-      />
-      <div class="relative p-4 flex flex-col justify-end h-40">
-        <h2 class="text-xl font-semibold mb-2 drop-shadow-lg">FM Blue</h2>
-        <audio controls>
-          <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/BLUE_FM_100_7AAC.aac?time=1711321471958" type="audio/aac" />
-          Tu navegador no soporta el elemento de audio.
-        </audio>
-      </div>
-    </article>
+      <!-- 2 -->
+      <input type="radio" id="radio2" name="radioStream" value="https://ice-sov.musicradio.com/Heart80sMP3" data-name="80s Heart Radio" />
+      <label for="radio2" class="flex items-center bg-gray-800 p-4 hover:bg-gray-700 transition">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdWRAGThHd47I-OHLkGnz2tEXSQhgwT0P4iQ&s" alt="80s Heart Radio" class="w-20 h-20 rounded-lg object-cover mr-5" />
+        <div class="text-white flex flex-col">
+          <h2 class="text-xl font-semibold tracking-wide">80s Heart Radio</h2>
+          <p class="text-gray-300 text-sm max-w-md">Non-stop 80s feel good for a modern world.</p>
+        </div>
+      </label>
 
-    <article class="relative rounded-xl shadow-lg overflow-hidden group cursor-pointer">
-      <img
-        src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80"
-        alt="Rock FM"
-        class="absolute inset-0 w-full h-full object-cover brightness-50 transition-transform duration-300 group-hover:scale-110"
-      />
-      <div class="relative p-4 flex flex-col justify-end h-40">
-        <h2 class="text-xl font-semibold mb-2 drop-shadow-lg">Rock FM</h2>
-        <audio controls>
-          <source src="https://rockfm-cope-rrcast.flumotion.com/cope/rockfm-low.mp3" type="audio/mp3" />
-          Tu navegador no soporta el elemento de audio.
-        </audio>
-      </div>
-    </article>
+      <!-- 3 -->
+      <input type="radio" id="radio3" name="radioStream" value="https://edge-bauerall-01-gos2.sharp-stream.com/magic1548.aac" data-name="Greatest Hits Radio" />
+      <label for="radio3" class="flex items-center bg-gray-800 p-4 hover:bg-gray-700 transition">
+        <img src="https://play-lh.googleusercontent.com/_axP10Cc7cDlxUOQs4UpZwI-2fIbq5Ty6VBNMRQSsjQnf4b16R3SJMbSU1t5L34oWfg" alt="Greatest Hits Radio" class="w-20 h-20 rounded-lg object-cover mr-5" />
+        <div class="text-white flex flex-col">
+          <h2 class="text-xl font-semibold tracking-wide">Greatest Hits Radio</h2>
+          <p class="text-gray-300 text-sm max-w-md">The biggest songs of the 70s, 80s and 90s played by presenters you know and love.</p>
+        </div>
+      </label>
+
+      <!-- 4 -->
+      <input type="radio" id="radio4" name="radioStream" value="https://rockfm-cope-rrcast.flumotion.com/cope/rockfm-low.mp3" data-name="Rock FM" />
+      <label for="radio4" class="flex items-center bg-gray-800 p-4 hover:bg-gray-700 transition">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTav60zZCLbFF3KhmHnR3AF674cmQ3DYNu-Bw&s" alt="Rock FM" class="w-20 h-20 rounded-lg object-cover mr-5" />
+        <div class="text-white flex flex-col">
+          <h2 class="text-xl font-semibold tracking-wide">Rock FM</h2>
+          <p class="text-gray-300 text-sm max-w-md">Rock sin pausas</p>
+        </div>
+      </label>
+
+      <!-- 5 -->
+      <input type="radio" id="radio5" name="radioStream" value="https://edge-bauerall-01-gos2.sharp-stream.com/jazzhigh.aac" data-name="Jazz FM" />
+      <label for="radio5" class="flex items-center bg-gray-800 p-4 hover:bg-gray-700 transition">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-xhqWgh5Vo7FuiBBG5DznronhF_STW1qcfw&s" alt="Jazz FM" class="w-20 h-20 rounded-lg object-cover mr-5" />
+        <div class="text-white flex flex-col">
+          <h2 class="text-xl font-semibold tracking-wide">Jazz FM</h2>
+          <p class="text-gray-300 text-sm max-w-md">The world's greatest jazz, blues and soul from the greatest artists.</p>
+        </div>
+      </label>
+
+      <!-- 6 -->
+      <input type="radio" id="radio6" name="radioStream" value="https://ors.cdnstream1.com/5219_128" data-name="Nostalgie Extra - 80s" />
+      <label for="radio6" class="flex items-center bg-gray-800 p-4 hover:bg-gray-700 transition">
+        <img src="https://play-lh.googleusercontent.com/9sU0e3n1L-3RcRXtTgrHGXNTFo5e6o-3EiA1RGUKABQJHXUJNHwIRIuvblR6C0er5w" alt="Nostalgie Extra - 80s" class="w-20 h-20 rounded-lg object-cover mr-5" />
+        <div class="text-white flex flex-col">
+          <h2 class="text-xl font-semibold tracking-wide">Be Good Radio - 80s Rock Mix</h2>
+          <p class="text-gray-300 text-sm max-w-md">80s Rock Mix</p>
+        </div>
+      </label>
+
+      <!-- 7 -->
+      <input type="radio" id="radio7" name="radioStream" value="https://bigrradio.cdnstream1.com/5212_128" data-name="Metal - 80s" />
+      <label for="radio7" class="flex items-center bg-gray-800 p-4 hover:bg-gray-700 transition">
+        <img src="https://i.scdn.co/image/ab67616d0000b273637a7cb733ad0a43e8c603bd" alt="Nostalgie Extra - 80s" class="w-20 h-20 rounded-lg object-cover mr-5" />
+        <div class="text-white flex flex-col">
+          <h2 class="text-xl font-semibold tracking-wide">80s Metal</h2>
+          <p class="text-gray-300 text-sm max-w-md">80s Metal Rock Mix</p>
+        </div>
+      </label>
+
+    </form>
   </main>
 
+  <!-- Player -->
+  <div id="playerContainer" class="fixed bottom-0 left-0 right-0 bg-gray-800 bg-opacity-90 backdrop-blur-md p-3 shadow-lg flex items-center space-x-3 hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-2v13" />
+      <circle cx="6" cy="18" r="3" stroke-linecap="round" stroke-linejoin="round" />
+      <circle cx="18" cy="16" r="3" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <audio id="audioPlayer" controls class="rounded-md outline-none flex-grow" style="background: #1e293b;"></audio>
+  </div>
+
+  <script>
+    const form = document.getElementById('radioForm');
+    const playerContainer = document.getElementById('playerContainer');
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    form.addEventListener('change', e => {
+      if (e.target.name === 'radioStream') {
+        const streamUrl = e.target.value;
+        audioPlayer.src = streamUrl;
+        audioPlayer.play();
+        playerContainer.classList.remove('hidden');
+      }
+    });
+  </script>
 </body>
 </html>
+
